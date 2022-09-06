@@ -99,7 +99,6 @@ export interface NexusGenObjects {
     applicants_count: number; // Int!
     applications: NexusGenRootTypes['BountyApplication'][]; // [BountyApplication!]!
     body: string; // String!
-    cover_image?: string | null; // String
     createdAt: NexusGenScalars['Date']; // Date!
     deadline: string; // String!
     excerpt: string; // String!
@@ -141,7 +140,6 @@ export interface NexusGenObjects {
     title: string; // String!
   }
   Hackathon: { // root type
-    cover_image: string; // String!
     description: string; // String!
     end_date: NexusGenScalars['Date']; // Date!
     id: number; // Int!
@@ -168,7 +166,6 @@ export interface NexusGenObjects {
   }
   Mutation: {};
   MyProfile: { // root type
-    avatar: string; // String!
     bio?: string | null; // String
     email?: string | null; // String
     github?: string | null; // String
@@ -215,7 +212,6 @@ export interface NexusGenObjects {
   }
   Story: { // root type
     body: string; // String!
-    cover_image?: string | null; // String
     createdAt: NexusGenScalars['Date']; // Date!
     excerpt: string; // String!
     id: number; // Int!
@@ -232,7 +228,6 @@ export interface NexusGenObjects {
     title: string; // String!
   }
   Tournament: { // root type
-    cover_image: string; // String!
     description: string; // String!
     end_date: NexusGenScalars['Date']; // Date!
     id: number; // Int!
@@ -242,7 +237,6 @@ export interface NexusGenObjects {
     website: string; // String!
   }
   User: { // root type
-    avatar: string; // String!
     bio?: string | null; // String
     email?: string | null; // String
     github?: string | null; // String

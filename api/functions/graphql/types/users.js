@@ -4,6 +4,7 @@ const { objectType, extendType, intArg, nonNull, inputObjectType, interfaceType,
 const { getUserByPubKey } = require("../../../auth/utils/helperFuncs");
 const { removeNulls } = require("./helpers");
 const { Tournament } = require('./tournaments');
+const resolveImgObjectToUrl = require('../../../utils/resolveImageUrl');
 
 
 
@@ -13,7 +14,17 @@ const BaseUser = interfaceType({
     definition(t) {
         t.nonNull.int('id');
         t.nonNull.string('name');
-        t.nonNull.string('avatar');
+        t.nonNull.string('avatar', {
+            async resolve(parent) {
+                const imgObject = await prisma.hostedImage.findUnique({
+                    where: {
+                        id: parent.avatar_id
+                    }
+                });
+
+                return resolveImgObjectToUrl(imgObject);
+            }
+        });
         t.nonNull.date('join_date');
         t.string('role');
         t.string('email')
